@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SlideNav from '$lib/components/SlideNav.svelte';
 	export let data;
 </script>
 
@@ -11,17 +12,25 @@
 
 <div class="flex flex-col items-center justify-between w-screen h-screen max-h-screen slide">
 	{#if data.meta.type === 'content'}
-		<section class="flex flex-col justify-center w-5/6 h-full pt-10 mx-auto">
-			<!-- Title -->
-			<hgroup class="flex items-center w-full mb-10">
-				<h1 class="w-full italic font-black text-center text-yellow-400 text-7xl">
-					{data.meta.title}
-				</h1>
-			</hgroup>
+		<section class="flex flex-col w-5/6 h-full mx-auto">
+			<!-- Navigation -->
+			<div class="pt-5 pb-3 shrink-0">
+				<SlideNav part={data.meta.part} section={data.meta.section} item={data.meta.item} />
+			</div>
 
-			<!-- Post -->
-			<div class="prose prose-2xl prose-invert max-w-none">
-				<svelte:component this={data.content} />
+			<!-- Content, vertically centered in remaining space -->
+			<div class="flex flex-col justify-center flex-1 pb-4">
+				<!-- Title -->
+				<hgroup class="flex items-center w-full mb-10">
+					<h1 class="w-full italic font-black text-center text-yellow-400 text-7xl">
+						{data.meta.title}
+					</h1>
+				</hgroup>
+
+				<!-- Post -->
+				<div class="prose prose-2xl prose-invert max-w-none">
+					<svelte:component this={data.content} />
+				</div>
 			</div>
 		</section>
 	{:else if data.meta.type === 'demo'}

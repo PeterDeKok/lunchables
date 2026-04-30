@@ -1,38 +1,52 @@
-# create-svelte
+# Lunchable: Ownership
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A 20-minute lunch presentation on the evolution of code ownership models, built as an interactive slide deck with SvelteKit.
 
-## Creating a project
+## What to Expect
 
-If you're seeing this, you've probably already done this step. Congrats!
+The presentation covers four code ownership frameworks and examines how they relate to established industry theory:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+**Ownership Models**
+- **Strict** (Gatekeeper) — one person owns and gates changes
+- **Weak** (Steward) — a designated owner, but others can contribute
+- **Toyota Way** (Disciplined Collective) — lean principles, collective with built-in quality gates
+- **Collective** (Shared responsibility) — everyone owns everything
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+**Industry Frameworks**
+- Theory of Constraints (Goldratt — *The Goal*)
+- Conway's Law
+- Jidoka and continuous improvement
+- Toil and operational burden
+- DORA metrics
+
+The deck closes with a *Micro Ownership* section as food for thought on where ownership patterns may be heading.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
+```
 
-# or start the server and open the app in a new browser tab
+Or open the app in a browser automatically:
+
+```bash
 npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+## Other Commands
 
 ```bash
-npm run build
+npm run build      # production build
+npm run preview    # preview the production build
+npm run check      # type-check
+npm run lint       # lint and format check
+npm run format     # auto-format
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
